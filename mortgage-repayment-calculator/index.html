@@ -14,6 +14,10 @@
 
     <title>Frontend Mentor | Mortgage repayment calculator</title>
 
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap");
+    </style>
+
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
@@ -26,64 +30,101 @@
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="justify-center items-center flex flex-col h-screen text-base bg-slate-300">
-    <div id="card" class="flex border-2 border-black bg-white w-[75%] h-[60%]">
-      <div id="card-input-area">
-        <div id="card-title" class="flex justify-between">
+  <body
+    class="justify-center items-center flex flex-col h-screen text-base bg-slate-300"
+  >
+    <div id="card" class="flex rounded-lg bg-white w-[75%] h-[60%]">
+      <div id="card-input-area" class="p-8">
+        <header id="card-title" class="flex justify-between">
           <h1 class="font-bold">Mortgage Calculator</h1>
           <button class="underline underline-offset-2">Clear All</button>
-        </div>
-        <div id="card-fields" class="flex flex-col">
-          <fieldset class="flex w-72">
+        </header>
+        <main id="card-fields" class="flex flex-col mt-6">
+          <fieldset class="flex flex-col w-72">
             <div class="flex flex-col">
-              <label for="mortgage-amount" class="text-slate-900">Mortgage Amount</label>
-              <input type="text" class="border rounded border-slate-900 mt-1" id="mortgage-amount">
+              <label for="mortgage-amount" class="text-slate-900"
+                >Mortgage Amount</label
+              >
+              <input
+                type="number"
+                class="border rounded border-slate-900 mt-1 py-1"
+                id="mortgage-amount"
+              />
             </div>
-            <div class="flex flex-col">
-              <label for="mortgage-term" class="text-slate-900">Mortgage Term</label>
-              <input type="text" class="border rounded border-slate-900 mt-1" id="mortgage-term" />
-            </div>
-            <div class="flex flex-col">
-              <label for="interest-rate" class="text-slate-900">Interest Rate</label>
-              <input type="text" class="border rounded border-slate-900 mt-1" id="interest-rate" />
-            </div>
-          </div>
-          <fieldset class="w-72">
-            <legend>Mortgage Type</legend>
-            <div class="flex space-x-4 h-8 w-72 border-2 border-black mt-1">
-              <input id="repayment" type="radio">
-              <label for="repayment">Repayment</label>
-            </div>
-            <div class="flex space-x-4 h-8 w-72 border-2 border-black mt-2">
-              <input id="interest-only" type="radio">
-              <label for="interest-only">Interest Only</label>
+            <div class="flex space-x-4 mt-2">
+              <div class="flex flex-col">
+                <label for="mortgage-term" class="text-slate-900"
+                  >Mortgage Term</label
+                >
+                <input
+                  type="number"
+                  class="border rounded border-slate-900 mt-1 py-1"
+                  id="mortgage-term"
+                />
+              </div>
+              <div class="flex flex-col">
+                <label for="interest-rate" class="text-slate-900"
+                  >Interest Rate</label
+                >
+                <input
+                  type="number"
+                  class="border rounded border-slate-900 mt-1 py-1"
+                  id="interest-rate"
+                />
+              </div>
             </div>
           </fieldset>
-          
-          Calculate Repayments
-        </div>
+          <fieldset class="w-[100%] mt-2">
+            <legend>Mortgage Type</legend>
+            <div
+              class="flex space-x-4 h-8 border border-black mt-1 rounded border-slate-900 py-1"
+            >
+              <input
+                id="repayment"
+                type="radio"
+                name="mortgage-type"
+                class="ml-2"
+              />
+              <label for="repayment">Repayment</label>
+            </div>
+            <div
+              class="flex space-x-4 h-8 border border-black mt-2 rounded border-slate-900 py-1"
+            >
+              <input
+                id="interest-only"
+                name="mortgage-type"
+                type="radio"
+                class="ml-2"
+              />
+              <label for="interest-only" class="">Interest Only</label>
+            </div>
+          </fieldset>
+          <button
+            type="submit"
+            class="mt-4 bg-lime-400 py-3 px-8 rounded-full font-bold w-[70%]"
+          >
+            Calculate Repayments
+          </button>
+        </main>
       </div>
-      <div id="card-result-area">
-        
+      <div id="card-result-area" class="bg-sky-950 p-8">
+        <!-- Empty results start -->
+        <p class="text-slate-300">
+          Results shown here Complete the form and click “calculate repayments”
+          to see what your monthly repayments would be.
+        </p>
 
-      <!-- Empty results start -->
+        <!-- Empty results end -->
 
-      Results shown here Complete the form and click “calculate repayments” to
-      see what your monthly repayments would be.
+        <!-- Completed results start -->
 
-      <!-- Empty results end -->
+        Your results Your results are shown below based on the information you
+        provided. To adjust the results, edit the form and click “calculate
+        repayments” again. Your monthly repayments Total you'll repay over the
+        term
 
-      <!-- Completed results start -->
-
-      Your results Your results are shown below based on the information you
-      provided. To adjust the results, edit the form and click “calculate
-      repayments” again. Your monthly repayments Total you'll repay over the
-      term
-
-      <!-- Completed results end -->
+        <!-- Completed results end -->
       </div>
-      
-      
     </div>
 
     <div class="attribution">
