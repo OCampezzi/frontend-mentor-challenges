@@ -30,13 +30,20 @@
       .attribution a {
         color: hsl(228, 45%, 44%);
       }
+
+      /* hide arrow buttons on number inputs */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     </style>
     <link href="../dist/output.css" rel="stylesheet" />
   </head>
   <body
     class="justify-center items-center flex flex-col h-screen text-base bg-slate-300 font-plusJakartaSans"
   >
-    <div id="card" class="flex rounded-2xl bg-white w-[65%] h-[80%]">
+    <div id="card" class="flex rounded-2xl bg-white w-[65%] h-[80%] mb-12">
       <div id="card-input-area" class="p-8 w-[60%]">
         <header id="card-title" class="flex justify-between">
           <h1 class="font-bold text-xl text-slate-900">Mortgage Calculator</h1>
@@ -54,11 +61,17 @@
                 class="text-sm text-slate-500 font-bold"
                 >Mortgage Amount</label
               >
-              <input
-                type="number"
-                class="border rounded border-slate-500 mt-2 h-10"
-                id="mortgage-amount"
-              />
+              <div class="relative overflow-hidden inline-block">
+                <input
+                  type="number"
+                  class="border rounded border-slate-500 mt-2 h-10 w-full pl-8 focus:outline-none"
+                  id="mortgage-amount"
+                />
+                <span
+                  class="flex absolute justify-center items-center top-2 left-0 text-slate-500 font-bold bg-slate-300 h-10 w-12 border-l border-y rounded-l border-slate-500"
+                  >£</span
+                >
+              </div>
             </div>
             <div class="flex space-x-4 mt-4 text-slate-900">
               <div class="flex flex-col">
@@ -99,7 +112,7 @@
                 type="radio"
                 value="repayment"
                 name="mortgage-type"
-                class="ml-4 checked:bg-lime-400"
+                class="ml-4 checked:accent-lime-400 cursor-pointer"
               />
               <span class="font-bold text-slate-900" for="repayment"
                 >Repayment</span
@@ -113,7 +126,7 @@
                 name="mortgage-type"
                 value="interest-only"
                 type="radio"
-                class="ml-4 checked:accent-lime-400 checked:text-lime-400"
+                class="ml-4 checked:accent-lime-400 cursor-pointer"
               />
               <span class="font-bold text-slate-900" for="interest-only"
                 >Interest Only</span
