@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Exibe o site corretamente com base no dispositivo do usuário -->
 
     <link
       rel="icon"
@@ -38,47 +37,61 @@
         -webkit-appearance: none;
         margin: 0;
       }
+
+      /* Para Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
     </style>
     <link href="../dist/output.css" rel="stylesheet" />
   </head>
   <body
     class="flex flex-col items-center justify-center h-screen text-base bg-slate-300 font-plusJakartaSans"
   >
-    <div id="card" class="flex rounded-2xl bg-white w-[65%] h-[80%] mb-8">
-      <form id="card-input-area" class="p-8 w-[50%]">
-        <header id="card-title" class="flex justify-between">
+    <div
+      id="card"
+      class="flex rounded-2xl bg-white w-[65%] h-[80%] mb-8 shadow-lg"
+    >
+      <form
+        id="card-input-area"
+        class="p-8 w-1/2 flex flex-col justify-between"
+        aria-labelledby="card-title"
+      >
+        <header id="card-title" class="flex justify-between items-center">
           <h1 class="font-bold text-xl text-slate-900">Mortgage Calculator</h1>
           <button
-            class="underline underline-offset-2 text-sm text-slate-500 font-bold"
             type="button"
+            class="underline underline-offset-2 text-sm text-slate-500 font-bold"
+            onclick="document.getElementById('card-input-area').reset();"
+            aria-label="Clear all input fields"
           >
             Clear All
           </button>
         </header>
 
-        <main id="card-fields" class="flex flex-col mt-6">
+        <main id="card-fields" class="flex flex-col mt-6 space-y-6">
           <!-- Campos de Entrada -->
-          <fieldset class="flex flex-col w-96">
+          <fieldset class="flex flex-col">
             <!-- Valor do Empréstimo -->
-            <div class="flex flex-col w-96">
-              <label
-                for="mortgage-amount"
-                class="text-sm text-slate-500 font-bold"
+            <label
+              for="mortgage-amount"
+              class="text-sm text-slate-500 font-bold mb-2"
+            >
+              Mortgage Amount
+            </label>
+            <div class="relative">
+              <input
+                type="number"
+                class="border border-slate-500 rounded h-10 w-full pl-14 cursor-pointer pr-4 focus:outline-none focus:ring-2 focus:ring-lime-400 font-bold"
+                id="mortgage-amount"
+                required
+                aria-required="true"
+              />
+              <span
+                class="absolute left-0 top-0 flex items-center justify-center h-full w-12 bg-slate-300 border border-l-slate-500 border-y-slate-500 rounded-l font-bold text-slate-500"
               >
-                Mortgage Amount
-              </label>
-              <div class="relative overflow-hidden inline-block">
-                <input
-                  type="number"
-                  class="border rounded border-slate-500 mt-2 h-10 w-full focus:outline-none pl-14 font-bold"
-                  id="mortgage-amount"
-                />
-                <span
-                  class="flex absolute items-center justify-center top-2 left-0 text-slate-500 font-bold bg-slate-300 h-10 w-12 border-l border-y rounded-l border-slate-500"
-                >
-                  £
-                </span>
-              </div>
+                £
+              </span>
             </div>
 
             <!-- Termo e Taxa de Juros -->
@@ -94,7 +107,7 @@
                 <div class="relative overflow-hidden inline-block">
                   <input
                     type="number"
-                    class="border rounded border-slate-500 mt-2 h-10 pl-2 focus:outline-none font-bold"
+                    class="border rounded border-slate-500 mt-2 h-10 pl-2 cursor-pointer focus:outline-none font-bold"
                     id="mortgage-term"
                   />
                   <span
@@ -116,7 +129,7 @@
                 <div class="relative overflow-hidden inline-block">
                   <input
                     type="number"
-                    class="border rounded border-slate-500 mt-2 h-10 pl-2 focus:outline-none font-bold"
+                    class="border rounded border-slate-500 mt-2 h-10 pl-2 cursor-pointer focus:outline-none font-bold"
                     id="interest-rate"
                   />
                   <span
